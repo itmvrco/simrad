@@ -15,6 +15,13 @@ To use OpenBR24, follow these steps:
 2. Start the GUI class or run the .jar file provided.
 2. Choose to open a live radar ("Open Live") device or a recording ("Open File"). Recordings are read from PCAP-files. You can create your own recordings using tools like Wireshark or tcpdump.
 3. If you open a live device, turn it on using the "Power On" button. You can then select the range of the radar from the listbox. In playback mode, the range is defined by the recorded data.
+4. Optionally forward radar packets from another source using the provided Node.js script:
+   ```bash
+   node scripts/udp_listener.js
+   ```
+   The listener receives packets on UDP port `50102`, logs them to a CSV file and
+   forwards them to the multicast group `236.6.7.8:6678` so the GUI can display
+   them in real time.
 
 ## Installation
 
